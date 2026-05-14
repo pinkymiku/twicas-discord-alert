@@ -8,10 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send Discord test
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        run: |
-          curl -H "Content-Type: application/json" \
-          -d '{"content":"✅ GitHub ActionsからDiscord通知テスト成功"}' \
-          "$DISCORD_WEBHOOK"
+      - run: |
+          curl -X POST \
+          -H "Content-Type: application/json" \
+          -d '{"content":"Discord通知テスト成功"}' \
+          "${{ secrets.DISCORD_WEBHOOK }}"
