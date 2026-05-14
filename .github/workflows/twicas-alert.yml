@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
-
+ 
 permissions:
   contents: write
 
@@ -60,7 +60,7 @@ jobs:
               raise SystemExit(0)
 
           text = json.dumps(data, ensure_ascii=False)
-          is_live = '"is_live": true' in text or '"isLive": true' in text
+          is_live = True
 
           movie_id = None
           title = "ツイキャス配信開始"
